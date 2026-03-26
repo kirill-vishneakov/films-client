@@ -1,0 +1,32 @@
+.header {
+  padding: 16px 24px;
+  background-color: var(--color-gray-100);
+  border-bottom: 1px solid var(--color-bg-page);
+}
+
+.inner {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 999px;
+  border-color: var(--color-control-border);
+  background-color: var(--color-control-bg);
+  color: var(--color-control-text);
+  font-size: 20px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}

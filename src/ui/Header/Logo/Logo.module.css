@@ -1,0 +1,20 @@
+.logo {
+  height: 24px;
+  width: auto;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  padding: 4px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.logoLink:hover {
+  opacity: 1;
+}

@@ -1,0 +1,12 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-bottom: 64px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}

@@ -1,0 +1,26 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 16px;
+  flex: 1;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.active {
+  background-color: var(--color-control-bg);
+  color: var(--color-text-primary);
+}
+
+.separator {
+  color: var(--color-border-muted);
+  align-self: center;
+}

@@ -1,0 +1,51 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.viewMoreLink {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+
+  padding: 6px 12px;
+  font-size: 14px;
+
+  background-color: transparent;
+  border-color: var(--color-control-border);
+  color: var(--color-control-text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--movie-grid-columns, 6), minmax(0, 1fr));
+  gap: 24px;
+}

@@ -1,0 +1,164 @@
+html[data-theme="light"] {
+  /* Основа */
+  --color-bg-page: #ffffff;
+  --color-bg-footer: #f9fafb;
+
+  /* Текст */
+  --color-text-primary: #111827;
+  --color-text-footer: #4b5563;
+
+  /* Бордеры */
+  --color-border-default: #d1d5db;
+  --color-border-muted: #e5e7eb;
+
+  /* Контролы (input, button) */
+  --color-control-bg: #e4dbdb;
+  --color-control-text: #111827;
+  --color-control-border: #d1d5db;
+
+  /* Акцент */
+  --color-accent-primary: #535bf2;
+  --color-accent-hover: #646cff;
+
+  /* Статусы */
+  --color-success: #16a34a;
+  --color-warning: #facc15;
+  --color-error: #dc2626;
+}
+
+html[data-theme="dark"] {
+  /* Основа */
+  --color-bg-page: #0b1120;
+  --color-bg-footer: #0f172a;
+
+  /* Текст */
+  --color-text-primary: #f8fafc;
+  --color-text-footer: #94a3b8;
+
+  /* Бордеры */
+  --color-border-default: #324061;
+  --color-border-muted: #27354f;
+
+  /* Контролы */
+  --color-control-bg: #1f2b40;
+  --color-control-text: #f8fafc;
+  --color-control-border: #324061;
+
+  /* Акцент */
+  --color-accent-primary: #4f46e5;
+  --color-accent-hover: #6366f1;
+
+  /* Статусы */
+  --color-success: #22c55e;
+  --color-warning: #facc15;
+  --color-error: #ef4444;
+}
+
+html {
+  --color-white: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  transition:
+    background-color 200ms linear,
+    color 200ms linear;
+}
+
+*,
+*::before,
+*::after {
+  transition:
+    background-color 200ms linear,
+    border-color 200ms linear,
+    color 300ms linear,
+    fill 200ms linear,
+    stroke 200ms linear;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
