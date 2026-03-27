@@ -1,6 +1,5 @@
-// const API_KEY = "230809a22360bc017775fce2bde6d004"
-const ACCESS_TOKEN =
-  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzA4MDlhMjIzNjBiYzAxNzc3NWZjZTJiZGU2ZDAwNCIsIm5iZiI6MTcyNjMxMjA4OS40MzUwMDAyLCJzdWIiOiI2NmU1NmU5OWYzZDNmOGJmZjk2ZDg0ZmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.V4TM1IDy4OmNYj1u8FYxXjCmuI2CO2ltmadd8vUg_FQ"
+// const API_KEY = import.meta.env.VITE_API_KEY
+const ACCESS_TOKEN = import.meta.env.ACCESS_TOKEN
 const BASE_URL = "https://api.themoviedb.org/3/"
 const lang = "?language=ru-RU"
 
