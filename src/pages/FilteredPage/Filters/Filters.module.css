@@ -1,0 +1,50 @@
+.filters {
+  background-color: var(--color-bg-second);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.sortControls {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+  background-color: var(--color-blue);
+  border-color: transparent;
+  color: var(--color-white);
+  padding: 6px 12px;
+  font-size: 14px;
+}

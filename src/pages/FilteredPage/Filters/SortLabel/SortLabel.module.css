@@ -1,0 +1,45 @@
+.sortLabel {
+  display: flex;
+  gap: 12px;
+  font-weight: 600;
+  color: var(--color-control-text);
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.sortSelectWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.sortSelect {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-control-border);
+  font-size: 14px;
+  background-color: var(--color-control-bg);
+  color: var(--color-control-text);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn {
+  padding: 5px;
+  border-radius: 999px;
+  border-color: var(--color-control-border);
+  background-color: var(--color-control-bg);
+  color: var(--color-control-text);
+  font-size: 20px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}

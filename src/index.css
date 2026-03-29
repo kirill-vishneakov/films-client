@@ -2,6 +2,7 @@ html[data-theme="light"] {
   /* Основа */
   --color-bg-page: #ffffff;
   --color-bg-footer: #f9fafb;
+  --color-bg-second: #f3f4f6;
 
   /* Текст */
   --color-text-primary: #111827;
@@ -30,6 +31,7 @@ html[data-theme="dark"] {
   /* Основа */
   --color-bg-page: #0b1120;
   --color-bg-footer: #0f172a;
+  --color-bg-second: #141c2c;
 
   /* Текст */
   --color-text-primary: #f8fafc;
@@ -56,6 +58,7 @@ html[data-theme="dark"] {
 
 html {
   --color-white: white;
+  --color-blue: #2563eb;
 }
 
 *,

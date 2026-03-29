@@ -2,6 +2,7 @@ import styles from "./Card.module.css"
 import { clsx } from "clsx"
 import type { MovieRes } from "../../api/api"
 import { getImageUrl } from "../../utils/getImageUrl"
+import { Link } from "react-router"
 
 interface Props {
   movie: MovieRes
@@ -13,7 +14,7 @@ export default function Card({ movie }: Props) {
   return (
     <article className={styles.card}>
       <div className={styles.posterFrame}>
-        <a className={styles.posterLink} href="/movie/id">
+        <Link className={styles.posterLink} to={`/movie/${movie.id}`}>
           <img
             className={styles.poster}
             src={getImageUrl(movie.poster_path, "card", movie.title)}
@@ -29,7 +30,7 @@ export default function Card({ movie }: Props) {
             })}>
             {movie.vote_average.toFixed(1)}
           </span>
-        </a>
+        </Link>
         <button
           className={clsx({
             [styles.btn]: true,
@@ -48,9 +49,9 @@ export default function Card({ movie }: Props) {
           </svg>
         </button>
       </div>
-      <a className={styles.cardTitleLink} href="/movie/id">
+      <Link className={styles.cardTitleLink} to={`/movie/${movie.id}`}>
         <h3 className={styles.cartTitle}>{movie.title}</h3>
-      </a>
+      </Link>
     </article>
   )
 }

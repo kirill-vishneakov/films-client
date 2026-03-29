@@ -1,5 +1,5 @@
 // const API_KEY = import.meta.env.VITE_API_KEY
-const ACCESS_TOKEN = import.meta.env.ACCESS_TOKEN
+const ACCESS_TOKEN = import.meta.env.VITE_ACCESS_TOKEN
 const BASE_URL = "https://api.themoviedb.org/3/"
 const lang = "?language=ru-RU"
 
@@ -42,6 +42,11 @@ export interface MovieRes {
   vote_count: number
 }
 
+export interface Genre {
+  id: number
+  name: string
+}
+
 export async function getCategoryMovies(
   endpoint: "now_playing" | "upcoming" | "top_rated" | "popular"
 ): Promise<Pageble<MovieRes>> {
@@ -68,4 +73,37 @@ export async function initConfig() {
 
 export function getConfiguration(): Confirmation | null {
   return config
+}
+
+export async function getGenres(): Promise<{ genres: Genre[] }> {
+  const res = await fetch(`${BASE_URL}genre/movie/list${lang}`, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${ACCESS_TOKEN}`,
+    },
+  })
+  return res.json()
+}
+
+export async function getFilteredMovies(
+  sort_by: string,
+  left: number,
+  right: number,
+  genres: Genre[],
+  page: number
+) {
+  let genresStr = genres.map(el => el.id).join("%2C")
+  if (genresStr) genresStr = "with_genres=" + genresStr
+  const res = await fetch(
+    `${BASE_URL}discover/movie${lang}&${genresStr}&sort_by=${sort_by}&vote_average.gte=${left}&vote_average.lte=${right}&page=${page}`,
+    {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
+      },
+    }
+  )
+  return res.json()
 }
