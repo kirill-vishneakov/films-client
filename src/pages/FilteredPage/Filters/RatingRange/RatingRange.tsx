@@ -1,6 +1,6 @@
 import { type ChangeEvent } from "react"
 import styles from "./RatingRange.module.css"
-import type { Rating } from "../../../../hooks/useFilters"
+import type { Rating } from "../../../../hooks/useFilters/useFilters"
 
 interface Props {
   rating: Rating

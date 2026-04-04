@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react"
 import type { Genre } from "../../../api/api"
-import type { Rating, SortBy, SortList } from "../../../hooks/useFilters"
+import type { Rating, SortBy, SortList } from "../../../hooks/useFilters/useFilters"
 import styles from "./Filters.module.css"
 import { GenreList } from "./GenreList/GenreList"
 import { RatingRange } from "./RatingRange/RatingRange"

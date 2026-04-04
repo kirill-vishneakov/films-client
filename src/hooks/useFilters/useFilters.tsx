@@ -1,5 +1,5 @@
 import { useEffect, useState, type ChangeEvent } from "react"
-import { getFilteredMovies, getGenres, type Genre, type MovieRes } from "../api/api"
+import { getFilteredMovies, getGenres, type Genre, type MovieRes } from "../../api/api"
 
 interface Output {
   movies: MovieRes[] | null
@@ -63,7 +63,6 @@ export function useFilters(): Output {
     type: "desc",
   })
   const [page, setPage] = useState(1)
-  const [fetching, setFetching] = useState<"replace" | "append">("replace")
 
   useEffect(() => {
     getGenres().then(data => setGenres(data.genres))
@@ -71,13 +70,16 @@ export function useFilters(): Output {
 
   function changeSort(e: ChangeEvent<HTMLSelectElement>) {
     setSortBy(prev => ({ ...prev, value: e.target.value }))
+    setPage(1)
   }
 
   function changeSortType() {
     setSortBy({ ...sortBy, type: sortBy.type === "asc" ? "desc" : "asc" })
+    setPage(1)
   }
 
   function changeRating(e: ChangeEvent<HTMLInputElement>, vector: "left" | "right") {
+    setPage(1)
     const value = Number(e.target.value)
 
     if ((vector === "left" && rating.right > value) || (vector === "right" && rating.left < value))
@@ -85,6 +87,7 @@ export function useFilters(): Output {
   }
 
   function selectGenre(genre: Genre) {
+    setPage(1)
     if (selectGenres.some(g => g.id === genre.id)) {
       setSelectGenres(selectGenres.filter(select => select.id !== genre.id))
       return
@@ -93,7 +96,6 @@ export function useFilters(): Output {
   }
 
   function reset() {
-    setFetching("replace")
     setPage(1)
     setMovies(null)
     setSelectGenres([])
@@ -108,35 +110,19 @@ export function useFilters(): Output {
   }
 
   function nextPage() {
-    if (fetching === "append") return
-    setFetching("append")
     setPage(prev => prev + 1)
-  }
-
-  function replaceMovies(sort_by: string) {
-    setPage(1)
-    getFilteredMovies(sort_by, rating.left, rating.right, selectGenres, 1).then(data =>
-      setMovies(data.results)
-    )
   }
 
   useEffect(() => {
     const sort_by = `${sortBy.value}.${sortBy.type}`
 
-    if (fetching === "replace") {
-      replaceMovies(sort_by)
-    }
-
-    if (fetching === "append")
-      getFilteredMovies(sort_by, rating.left, rating.right, selectGenres, page)
-        .then(data => {
-          setMovies(prev => {
-            if (prev) return [...prev, ...data.results]
-            return [...data.results]
-          })
-        })
-        .finally(() => setFetching("replace"))
-  }, [sortBy, rating, selectGenres, page, fetching])
+    getFilteredMovies(sort_by, rating.left, rating.right, selectGenres, page).then(data => {
+      setMovies(prev => {
+        if (page > 1 && prev) return [...prev, ...data.results]
+        return [...data.results]
+      })
+    })
+  }, [sortBy, rating, selectGenres, page])
 
   return {
     movies,

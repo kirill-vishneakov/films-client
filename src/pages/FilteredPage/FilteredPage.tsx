@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-import { useFilters } from "../../hooks/useFilters"
+import { useEffect, useRef } from "react"
+import { useFilters } from "../../hooks/useFilters/useFilters"
 import { GridMovies } from "../../ui/GridMovies/GridMovies"
 import styles from "./FilteredPage.module.css"
 import { Filters } from "./Filters/Filters"
@@ -20,19 +20,26 @@ export function FilteredPage() {
     nextPage,
   } = useFilters()
 
-  function scrollHendler(e: Event & { target: Document }) {
-    if (
-      e.target.documentElement.scrollHeight -
-        (e.target.documentElement.scrollTop + window.innerHeight) <
-      100
-    )
-      nextPage()
-  }
+  const loaderRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    document.addEventListener("scroll", scrollHendler)
-    return () => document.removeEventListener("scroll", scrollHendler)
-  }, [])
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+
+        if (!movies) return
+        nextPage()
+      },
+      { rootMargin: "200px" }
+    )
+
+    const el = loaderRef.current
+    if (!el) return
+
+    observer.observe(el)
+
+    return () => observer.disconnect()
+  }, [movies])
 
   return (
     <section className={styles.page}>
@@ -54,6 +61,7 @@ export function FilteredPage() {
         <div className={styles.moviesColumn}>
           <section className={styles.section}>
             <GridMovies movies={movies} />
+            <div ref={loaderRef}></div>
           </section>
         </div>
       </div>

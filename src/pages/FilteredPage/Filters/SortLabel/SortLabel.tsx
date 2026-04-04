@@ -1,5 +1,5 @@
 import type { ChangeEvent } from "react"
-import type { SortBy, SortList } from "../../../../hooks/useFilters"
+import type { SortBy, SortList } from "../../../../hooks/useFilters/useFilters"
 import styles from "./SortLabel.module.css"
 
 interface Props {
