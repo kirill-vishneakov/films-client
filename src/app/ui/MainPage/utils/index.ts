@@ -1,0 +1,1 @@
+export { getRandomMovie } from "./getRandomMovie"

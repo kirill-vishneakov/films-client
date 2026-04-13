@@ -1,0 +1,29 @@
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.ratingBadge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
+.positive {
+  background-color: var(--color-success);
+}
+
+.neutral {
+  background-color: var(--color-warning);
+}
+
+.negative {
+  background-color: var(--color-error);
+}
